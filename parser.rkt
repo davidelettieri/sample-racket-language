@@ -13,6 +13,7 @@
       [grammar
        [expr [(LPAREN exprs RPAREN) $2]
              [(NUM) $1]
+             [(expr SUBTRACT expr) (- $1 $3)]
              [(expr ADD expr) (+ $1 $3)]]
        [exprs [() '()]
               [(expr exprs) (cons $1 $2)]]]))

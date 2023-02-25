@@ -1,3 +1,5 @@
+[![CI](https://github.com/davidelettieri/sample-racket-language/actions/workflows/ci.yml/badge.svg)](https://github.com/davidelettieri/sample-racket-language/actions/workflows/ci.yml)
+
 # Minimal setup for a racket language with custom syntax
 
 This repo serves as a start project for a new racket language with a custom surface syntax. A parser generator is used to parse a very simple language of aritmetic expression only integers, `+`, `-` and grouping `(..)`. Our sample language supports a single aritmetic expression.

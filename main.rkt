@@ -5,7 +5,7 @@
  
   (provide (rename-out [my-read read]
                        [my-read-syntax read-syntax]))
- 
+
   (define (my-read in)
     (syntax->datum
      (my-read-syntax #f in)))
@@ -14,4 +14,6 @@
     (with-syntax ([result (the-parser (lambda () (custom-lexer in)))])
       (strip-context
        #'(module anything racket
+           (define subtract -)
+           (define add +)
            result)))))

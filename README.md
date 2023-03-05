@@ -30,7 +30,7 @@ Run in the root directory of the project
 raco pkg install
 ```
 
-After that we will be able to use
+After that you will be able to use
 ```
 #lang my-lang
 ```

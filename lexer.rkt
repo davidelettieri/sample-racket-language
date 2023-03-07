@@ -3,7 +3,7 @@
 (require parser-tools/lex)
 
 (define-tokens basic-tokens (NUM))
-(define-empty-tokens punct-tokens (LPAREN RPAREN EOF ADD SUBTRACT))
+(define-empty-tokens punct-tokens (LPAREN RPAREN EOF ADD SUBTRACT DIVIDE MULTIPLY))
 
 ; In order to get the tokens from the custom-lexer we need a PORT and then call repeatedly the 
 ; custom-lexer function with that PORT has an input
@@ -18,6 +18,8 @@
       [")" (token-RPAREN)]
       ["+" (token-ADD)]
       ["-" (token-SUBTRACT)]
+      ["*" (token-MULTIPLY)]
+      ["/" (token-DIVIDE)]
       [(repetition 1 +inf.0 numeric) (token-NUM (string->number lexeme))]
       ; invoke the lexer again to skip the current token
       ; the return-without-pos call is needed to avoid a "double" wrapping into a position token

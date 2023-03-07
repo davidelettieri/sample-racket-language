@@ -14,6 +14,5 @@
     (with-syntax ([result (the-parser (lambda () (custom-lexer in)))])
       (strip-context
        #'(module anything racket
-           (define subtract -)
-           (define add +)
+           (require "semantics.rkt")
            result)))))

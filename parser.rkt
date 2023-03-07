@@ -25,15 +25,20 @@
    [error void]
    [src-pos]
    [tokens basic-tokens punct-tokens]
-   [precs (left SUBTRACT ADD)]
+   ; precs clause go from lowest to highest priority
+   ; tokens at the same level share the same priority
+   [precs (left ADD SUBTRACT)
+          (left MULTIPLY DIVIDE)]
    [grammar
           ; the start position of a parenthesized expression is the start position of the open '('
     [expr [(LPAREN expr RPAREN) (position-token->syntax $2 $1-start-pos $3-end-pos)] 
           ; the start position of a number is the start position of the number token
           [(NUM) (position-token->syntax $1 $1-start-pos $1-end-pos)]
-          ; the start position of a subtract expression is the start position of the first expression
+          ; the start position of all binary expression is the start position of the first expression
+          ; the end position is the end position of the second expression
+          [(expr MULTIPLY expr) (position-token->syntax `(multiply ,$1 ,$3) $1-start-pos $3-end-pos)]
+          [(expr DIVIDE expr) (position-token->syntax `(divide ,$1 ,$3) $1-start-pos $3-end-pos)]
           [(expr SUBTRACT expr) (position-token->syntax `(subtract ,$1 ,$3) $1-start-pos $3-end-pos)]
-          ; the start position of an add expression is the start position of the first expression 
           [(expr ADD expr) (position-token->syntax `(add ,$1 ,$3) $1-start-pos $3-end-pos)]]
     ]))
 

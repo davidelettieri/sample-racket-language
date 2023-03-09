@@ -21,9 +21,9 @@ jobs:
           distribution: full
           variant: ${{ matrix.racket-variant }}
           version: ${{ matrix.racket-version }}
-      - name: Installing my-lang and its dependencies
-        run: raco pkg install --no-docs --auto --name my-lang
-      - name: Compiling my-lang and building its docs
-        run: raco setup --check-pkg-deps --unused-pkg-deps my-lang
-      - name: Testing my-lang
-        run: raco test -x -p my-lang
+      - name: Installing sample-racket-language and its dependencies
+        run: raco pkg install --no-docs --auto --name sample-racket-language
+      - name: Compiling sample-racket-language and building its docs
+        run: raco setup --check-pkg-deps --unused-pkg-deps sample-racket-language
+      - name: Testing sample-racket-language
+        run: raco test -x -p sample-racket-language

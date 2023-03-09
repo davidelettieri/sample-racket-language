@@ -1,10 +1,10 @@
 #lang scribble/manual
-@require[@for-label[my-lang
+@require[@for-label[sample-racket-language
                     racket/base]]
 
-@title{my-lang}
+@title{sample-racket-language}
 @author{davide}
 
-@defmodule[my-lang]
+@defmodule[sample-racket-language]
 
 Package Description Here

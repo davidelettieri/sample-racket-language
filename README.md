@@ -32,14 +32,14 @@ raco pkg install
 
 After that you will be able to use
 ```
-#lang my-lang
+#lang sample-racket-language
 ```
 
 at the top of your racket files. The `use-language.rkt` file contains a minimal example using the language defined in the repo.
 
-Please note that the language name `my-lang` is defined into the `info.rkt` file with the syntax
+Please note that the language name `sample-racket-language` is defined into the `info.rkt` file with the syntax
 ```scheme
-(define collection "my-lang")
+(define collection "sample-racket-language")
 ```
 
 The folder structure has been created using 

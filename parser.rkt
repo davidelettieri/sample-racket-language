@@ -18,7 +18,7 @@
 (define (position-token->syntax val start-pos end-pos)
   (datum->syntax #f val (positions->srcloc start-pos end-pos)))
 
-(define the-parser
+(define sample-parser
   (parser
    [start expr]
    [end EOF]
@@ -42,4 +42,4 @@
           [(expr ADD expr) (position-token->syntax `(add ,$1 ,$3) $1-start-pos $3-end-pos)]]
     ]))
 
-(provide the-parser)
+(provide sample-parser)

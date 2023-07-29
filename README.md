@@ -22,7 +22,7 @@ nor
 1.5-1
 ```
 
-# How to test it
+# How to use it
 
 Run in the root directory of the project
 
@@ -49,6 +49,12 @@ raco pkg new sample-racket-language
 ```
 
 and then customizing the collection name.
+
+## Running the test suite
+
+```
+raco test -x -p sample-racket-language
+```
 
 ## How it works
 

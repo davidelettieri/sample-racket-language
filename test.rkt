@@ -9,18 +9,18 @@
 
   (define (parse-string s)
     (let ([in (open-input-string s)])
-      (the-parser (lambda () (custom-lexer in)))))
+      (sample-parser (lambda () (sample-lexer in)))))
 
   (test-case
    "Tokens are recognized correctly"
    (let ([in (open-input-string "()+-*/ 123")])
-     (check-eqv? (position-token-token (custom-lexer in)) 'LPAREN)
-     (check-eqv? (position-token-token (custom-lexer in)) 'RPAREN)
-     (check-eqv? (position-token-token (custom-lexer in)) 'ADD)
-     (check-eqv? (position-token-token (custom-lexer in)) 'SUBTRACT)
-     (check-eqv? (position-token-token (custom-lexer in)) 'MULTIPLY)
-     (check-eqv? (position-token-token (custom-lexer in)) 'DIVIDE)
-     (let ([t (custom-lexer in)])
+     (check-eqv? (position-token-token (sample-lexer in)) 'LPAREN)
+     (check-eqv? (position-token-token (sample-lexer in)) 'RPAREN)
+     (check-eqv? (position-token-token (sample-lexer in)) 'ADD)
+     (check-eqv? (position-token-token (sample-lexer in)) 'SUBTRACT)
+     (check-eqv? (position-token-token (sample-lexer in)) 'MULTIPLY)
+     (check-eqv? (position-token-token (sample-lexer in)) 'DIVIDE)
+     (let ([t (sample-lexer in)])
        (check-eqv? (token-name (position-token-token t)) 'NUM)
        (check-eqv? (token-value (position-token-token t)) 123))))
   (test-case

@@ -14,5 +14,5 @@
     (with-syntax ([result (sample-parser (lambda () (sample-lexer in)))])
       (strip-context
        #'(module anything racket
-           (require "semantics.rkt")
+           (require sample-racket-language/semantics)
            result)))))

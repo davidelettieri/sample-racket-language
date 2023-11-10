@@ -62,12 +62,12 @@ The project leverages the [parser-tools-lib](https://pkgs.racket-lang.org/packag
 The language project is built around three files:
 - `lexer.rkt`
 - `parser.rkt`
-- `semantics.rkt`
+- `expander.rkt`
 - `main.rkt`
 
 In the `lexer.rkt` file we define the tokens of the language differentiating between tokens that are carrying a value with them, using `define-tokens`, and tokens that have no value, using `define-empty-tokens`.
 
-In the `parser.rkt` we use the tokens defined in the `lexer.rkt` file to define our parser. The parser will return a tree describing the expression using custom functions `add`,`multiply`,`subtract`,`divide` where by custom I mean that racket doesn't provide functions nor macros with these names by default. We use the `semantics.rkt` file to define these functions and implement our language using racket.
+In the `parser.rkt` we use the tokens defined in the `lexer.rkt` file to define our parser. The parser will return a tree describing the expression using custom functions `add`,`multiply`,`subtract`,`divide` where by custom I mean that racket doesn't provide functions nor macros with these names by default. We use the `expander.rkt` file to define these macros and implement our language using racket.
 
 The `main.rkt` file brings everything together defining a new module
 
@@ -77,3 +77,7 @@ The `main.rkt` file brings everything together defining a new module
 ```
 
 where we provide the `read` and `read-syntax` functions as required when creating a language with a custom surface syntax. The module definition part is sourced from the [racket official documentation](https://docs.racket-lang.org/guide/language-collection.html).
+
+# Resources
+
+[This](https://school.racket-lang.org/2019/plan/index.html) is an awesome resource about macros and languages.

@@ -4,8 +4,7 @@
   (require rackunit
            parser-tools/lex
            "lexer.rkt"
-           "parser.rkt"
-           "semantics.rkt")
+           "parser.rkt")
 
   (define (parse-string s)
     (let ([in (open-input-string s)])
@@ -32,4 +31,5 @@
                     '("2/3" . (divide 2 3))
                     '("2+3*2" . (add 2 (multiply 3 2))))])
      (for-each
-      (lambda (el) (check-equal? (syntax->datum (parse-string (car el))) (cdr el))) sources))))
+      (lambda (el) (check-equal? (syntax->datum (parse-string (car el))) (cdr el))) sources)))
+      )

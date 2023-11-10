@@ -62,14 +62,13 @@ The project leverages the [parser-tools-lib](https://pkgs.racket-lang.org/packag
 The language project is built around three files:
 - `lexer.rkt`
 - `parser.rkt`
-- `expander.rkt`
 - `main.rkt`
 
 In the `lexer.rkt` file we define the tokens of the language differentiating between tokens that are carrying a value with them, using `define-tokens`, and tokens that have no value, using `define-empty-tokens`.
 
-In the `parser.rkt` we use the tokens defined in the `lexer.rkt` file to define our parser. The parser will return a tree describing the expression using custom functions `add`,`multiply`,`subtract`,`divide` where by custom I mean that racket doesn't provide functions nor macros with these names by default. We use the `expander.rkt` file to define these macros and implement our language using racket.
+In the `parser.rkt` we use the tokens defined in the `lexer.rkt` file to define our parser. The parser will return a tree describing the expression using custom functions `add`,`multiply`,`subtract`,`divide` where by custom I mean that racket doesn't provide functions nor macros with these names by default. 
 
-The `main.rkt` file brings everything together defining a new module
+The `main.rkt` contains the required macros, the required exports and brings everything together defining the language module with a reader submodule.
 
 ```scheme
 (module reader racket 

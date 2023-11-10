@@ -1,6 +1,5 @@
 #lang scribble/manual
-@require[@for-label[sample-racket-language
-                    racket/base]]
+@require[@for-label[sample-racket-language]]
 
 @title{sample-racket-language}
 @author{davide}

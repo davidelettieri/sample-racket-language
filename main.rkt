@@ -40,4 +40,6 @@
 (provide subtract
          add
          multiply
-         divide)
+         divide
+         values
+         quote)

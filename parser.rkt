@@ -20,7 +20,7 @@
 
 (define sample-parser
   (parser
-   [start expr]
+   [start exprs]
    [end EOF]
    [error void]
    [src-pos]
@@ -30,6 +30,9 @@
    [precs (left ADD SUBTRACT)
           (left MULTIPLY DIVIDE)]
    [grammar
+    [exprs 
+     [(expr exprs) `(values ,$1 ,$2)]
+     [(expr) $1]]
           ; the start position of a parenthesized expression is the start position of the open '('
     [expr [(LPAREN expr RPAREN) (position-token->syntax $2 $1-start-pos $3-end-pos)] 
           ; the start position of a number is the start position of the number token
@@ -39,7 +42,7 @@
           [(expr MULTIPLY expr) (position-token->syntax `(multiply ,$1 ,$3) $1-start-pos $3-end-pos)]
           [(expr DIVIDE expr) (position-token->syntax `(divide ,$1 ,$3) $1-start-pos $3-end-pos)]
           [(expr SUBTRACT expr) (position-token->syntax `(subtract ,$1 ,$3) $1-start-pos $3-end-pos)]
-          [(expr ADD expr) (position-token->syntax `(add ,$1 ,$3) $1-start-pos $3-end-pos)]]
-    ]))
+          [(expr ADD expr) (position-token->syntax `(add ,$1 ,$3) $1-start-pos $3-end-pos)]
+    ]]))
 
 (provide sample-parser)

@@ -41,5 +41,4 @@
          add
          multiply
          divide
-         values
-         quote)
+         values)

@@ -2,7 +2,7 @@
 
 # Minimal setup for a racket language with custom syntax
 
-This repo serves as a start project for a new racket language with a custom surface syntax. A parser generator is used to parse a very simple language of aritmetic expression only integers, `+`, `-` and grouping `(..)`. Our sample language supports a single aritmetic expression.
+This repo serves as a start project for a new racket language with a custom surface syntax. A parser generator is used to parse a very simple language of aritmetic expression only integers, `+`, `-` and grouping `(..)`. Our sample language supports multiple aritmetic expressions defined on different lines.
 
 Valid expressions in the language are:
 ```
@@ -12,12 +12,12 @@ and
 ```
 4-5
 ```
-but not
+and
 ```
 1+2
 6+7+9
 ```
-nor
+but not
 ```
 1.5-1
 ```
@@ -64,7 +64,7 @@ The language project is built around three files:
 - `parser.rkt`
 - `main.rkt`
 
-In the `lexer.rkt` file we define the tokens of the language differentiating between tokens that are carrying a value with them, using `define-tokens`, and tokens that have no value, using `define-empty-tokens`.
+In the `lexer.rkt` file we define the tokens of the language differentiating between tokens that are carrying a value with them (for example number literals), using `define-tokens`, and tokens that have no value (for example parenthesis), using `define-empty-tokens`.
 
 In the `parser.rkt` we use the tokens defined in the `lexer.rkt` file to define our parser. The parser will return a tree describing the expression using custom functions `add`,`multiply`,`subtract`,`divide` where by custom I mean that racket doesn't provide functions nor macros with these names by default. 
 

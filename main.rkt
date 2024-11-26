@@ -2,7 +2,6 @@
 
 (provide #%module-begin ; required for a language module
          #%app ; required to have function call
-         #%top
          (rename-out [srl:datum #%datum])) ; required to have datum literal support
 
 (require (for-syntax syntax/parse))
